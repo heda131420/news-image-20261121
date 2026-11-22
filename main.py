@@ -23,6 +23,8 @@ def main():
     dest = os.path.join(out_dir, "entry.png")
     shutil.copyfile(SOURCE, dest)
     os.chmod(dest, 0o644)
+    if os.path.getsize(dest) != os.path.getsize(SOURCE):
+        sys.exit("entry.png did not copy completely")
 
 
 if __name__ == "__main__":
